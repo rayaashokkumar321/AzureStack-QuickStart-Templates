@@ -1,0 +1,19 @@
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - none
+name: route-deployment
+
+jobs:
+  nsg-build-release:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: whiteducksoftware/azure-arm-action@master
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        resourceGroupName: rg-cpd-apps-net-dev-we-01
+        templateLocation: 101-create-nsg/azuredeploy.json
+        parameters: 101-create-nsg/azuredeploy.parameters.json
+        deploymentName: route-deployment
