@@ -1,0 +1,29 @@
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - none
+name: azure-resource-deployment
+
+jobs:
+  nsg-resource-deployment:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: whiteducksoftware/azure-arm-action@master
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        resourceGroupName: rg-cpd-apps-net-dev-we-01
+        templateLocation: 101-create-nsg/azuredeploy.json
+        parameters: 101-create-nsg/azuredeploy.parameters.json
+        deploymentName: NSG-deployment
+
+    - uses: actions/checkout@master
+    - uses: whiteducksoftware/azure-arm-action@master
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        resourceGroupName: rg-cpd-apps-net-dev-we-01
+        templateLocation: 101-create-nsg/azuredeploy.json
+        parameters: 101-create-nsg/azuredeploy.parameters.json
+        deploymentName: NSG-deployment    
+        
