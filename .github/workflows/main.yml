@@ -1,0 +1,15 @@
+on: [push]
+name: ARMActionSample
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: whiteducksoftware/azure-arm-action@master
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        resourceGroupName: rg-cpd-apps-net-dev-we-01
+        templateLocation: 101-create-nsg/azuredeploy.json
+        parameters: 101-create-nsg/azuredeploy.parameters.json
+        deploymentName: NSG deployment
