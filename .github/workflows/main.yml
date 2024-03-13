@@ -12,4 +12,4 @@ jobs:
         resourceGroupName: rg-cpd-apps-net-dev-we-01
         templateLocation: 101-create-nsg/azuredeploy.json
         parameters: 101-create-nsg/azuredeploy.parameters.json
-        deploymentName: NSG deployment
+        deploymentName: NSG-deployment
