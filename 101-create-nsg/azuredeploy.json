@@ -4,7 +4,7 @@
   "apiProfile": "2018-03-01-hybrid",
   "parameters": { },
   "variables": {
-    "networkSecurityGroupName": "myNSG"
+    "networkSecurityGroupName": "AshokNSG"
   },
   "resources": [
     {
