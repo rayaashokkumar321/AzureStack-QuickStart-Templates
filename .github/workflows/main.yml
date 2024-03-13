@@ -2,7 +2,7 @@ on: [push]
 name: ARMActionSample
 
 jobs:
-  build-and-deploy:
+  nsg-deployment:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
